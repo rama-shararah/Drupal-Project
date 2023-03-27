@@ -1,0 +1,53 @@
+name: Notebook Zymphonies Theme
+type: theme
+description: 'Designed & Developed by <a href=https://www.zymphonies.com>Zymphonies</a><br/>Contact us for any kind of Drupal services <a href=mailto:info@zymphonies.com>info@zymphonies.com</a>'
+base theme: false
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+# libraries
+libraries:
+  - notebook_zymphonies_theme/bootstrap
+  - notebook_zymphonies_theme/flexslider
+  - notebook_zymphonies_theme/fontawesome
+  - notebook_zymphonies_theme/smartmenus
+  - notebook_zymphonies_theme/owl
+  - notebook_zymphonies_theme/masonry
+  - notebook_zymphonies_theme/global-components
+
+# Regions
+regions:
+
+  # Header
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  search: 'Search'
+
+  # Global region
+  highlighted: 'Highlighted' 
+  page_title: 'Page title'
+  breadcrumb: 'Breadcrumb'
+  content: 'Content'
+  sidebar_first: 'Left sidebar'
+  sidebar_second: 'Right sidebar'
+
+  # Bottom widgets
+  bottom_title: 'Bottom title'
+  bottom_first: 'Bottom first widget'
+  bottom_second: 'Bottom second widget'
+  bottom_third: 'Bottom third widget'
+  bottom_forth: 'Bottom forth widget'
+
+  # Footer widgets
+  footer_title: 'Footer title'
+  footer_first: 'Footer first widget'
+  footer_second: 'Footer second widget'
+  footer_third: 'Footer third widget'
+
+  # Auto hidden
+  auto_hidden_block: 'Auto hidden blocks'
+
+# Information added by Drupal.org packaging script on 2021-11-09
+version: '1.0.1'
+project: 'notebook_zymphonies_theme'
+datestamp: 1636457950

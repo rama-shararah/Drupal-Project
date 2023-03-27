@@ -1,0 +1,13 @@
+name: 'Swiper Cards'
+type: module
+description: 'Provides a Swiper Cards block which lets you enter sliders from your drupal block configuration area.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'Swiper Cards'
+dependencies:
+  - block
+
+# Information added by Drupal.org packaging script on 2022-11-24
+version: '1.0.2'
+project: 'swiper_cards'
+datestamp: 1669261033

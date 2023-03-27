@@ -1,0 +1,13 @@
+<!-- Service Items -->
+<div class="col-md-4 text-center item-block animate-box">
+	<span class="icon"><img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" alt="{{ content.field_image['#items'].alt }}" class="img-responsive"></span>
+	<h3>{{ content.field_title.0 }}</h3>
+	{{ content.field_body.0 }}
+	{% if content.field_url.0|render is not empty %}
+		<p><a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-primary btn-outline with-arrow">{{ content.field_url[0]['#title'] }} <i class="icon-arrow-right"></i></a></p>
+	{% endif %}
+</div>
+<!-- Service Items End-->
+
+
+

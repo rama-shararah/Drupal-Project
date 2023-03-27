@@ -1,0 +1,13 @@
+<!-- About us Items -->
+<div class="item animate-box">
+	<div class="testimony">
+		<blockquote>
+			&ldquo;{{ content.field_body.0|render|striptags }}&rdquo;
+		</blockquote>
+		<figure>
+			<img class="img-responsive" src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" alt="{{ content.field_title.0 }}">
+		</figure>
+		<p class="author">{{ content.field_title.0 }}</p>
+	</div>
+</div>
+<!-- About us Items End-->

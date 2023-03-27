@@ -1,0 +1,30 @@
+name : YG Bold 
+description: 'YG Bold is modern Drupal 8 theme developed to help you to create a stunning websites.'
+core_version_requirement: ^8 || ^9 
+type: theme 
+base theme: classy
+
+# #Libraries
+libraries:
+  - yg_bold/global-style
+  - yg_bold/fontawesome
+  
+#Regions
+regions:
+  header: 'Header'
+  site_branding: 'Site Branding'
+  primary_menu: 'Primary Menu'
+  tabs: 'Tabs'
+  content: 'Content'
+  banner: 'Banner'
+  latest_blog: 'Latest Blog(Footer)'
+  footer_menu: 'Footer Menu'
+  disable_blocks: 'Disable Blocks'
+
+
+  
+
+# Information added by Drupal.org packaging script on 2020-08-24
+version: '2.0.0'
+project: 'yg_bold'
+datestamp: 1598254002

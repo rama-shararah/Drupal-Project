@@ -1,0 +1,176 @@
+{#
+/**
+ * @file
+ * Default theme implementation for seiper cards formatter.
+ *
+ * Available variables:
+ * - swiper_cards_data: Array of swiper cards data.
+ *   - card_image
+ *   - card_title
+ *   - card_subtitl
+ *   - card_descriptio
+ *   - weigh
+ *   - image_url
+ *
+ * - swiper_card_layout: Swiper card layout
+ * - default_data: Container backgraoud color
+ *
+ *
+ *
+ * @ingroup themeable
+ */
+ #}
+
+ {%
+ set classes = [
+ 'swiper-card-slider',
+ ]
+ %}
+ {% if swiper_cards_data is not empty or default_data.swiper_card_header != '' %}
+   {% if default_data.swiper_card_header != '' %}
+    <div class="swiper-card-header-sec">
+      {{ default_data.swiper_card_header| raw}}
+    </div>
+  {% endif %}
+
+  {% if swiper_card_layout == 'layout_1' %}
+    {{ attach_library('swiper_cards/swiper_cards') }}
+    <div{{ attributes.addClass(classes) }}>
+
+    {# layout 1 #}
+    <div class="swipercardsblock-container-layout-1" {% if default_data.background_color!= '' %}style="background-color: {{ default_data.background_color }}" {% endif %}>
+      <div class="swiper-container-layout-1">
+        <div class="swiper-wrapper">
+          {% if swiper_cards_data is not empty %}
+            {% for key,swiper_card in swiper_cards_data %}
+              <div class="swiper-slide">
+                {% if swiper_card.image_url != '' %}
+                  <div class="picture">
+                    <img src="{{ swiper_card.image_url }}" alt="">
+                  </div>
+                {% endif %}
+                <div class="detail">
+                  {% if swiper_card.card_title != '' %}
+                    <h3>{{ swiper_card.card_title }}</h3>
+                  {% endif %}
+                  {% if swiper_card.card_subtitle != '' %}
+                    <span>{{ swiper_card.card_subtitle }}</span>
+                  {% endif %}
+                  {% if swiper_card.card_description.value != '' %}
+                    {{ swiper_card.card_description.value|raw }}
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    {# layout 1 end #}
+
+  {% elseif swiper_card_layout == 'layout_2' %}
+    {{ attach_library('swiper_cards/swiper_cards_bundle') }}
+    {# layout 2 #}
+    <div class="swipercardsblock-container-layout-2 swiper-card-{{ created_at }}" {% if default_data.background_color!= '' %}style="background-color: {{ default_data.background_color }}" {% endif %}>
+      <div class="swiper sc-layout-4">
+        <div class="swiper-wrapper">
+
+          {% if swiper_cards_data is not empty %}
+            {% for key,swiper_card in swiper_cards_data %}
+              <div class="swiper-slide">
+                {% if swiper_card.image_url != '' %}
+                  <div class="img" style="background-image: url({{ swiper_card.image_url }})"></div>
+                {% endif %}
+                <div class="swiper-content-container">
+                  {% if swiper_card.card_title != '' %}
+                    <div class="name">{{ swiper_card.card_title }}</div>
+                  {% endif %}
+                  {% if swiper_card.card_subtitle != '' %}
+                    <div class="title">{{ swiper_card.card_subtitle }}</div>
+                  {% endif %}
+                  {% if swiper_card.card_description.value != '' %}
+                    <div class="desc">{{ swiper_card.card_description.value|raw }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    {# layout 2 end #}
+
+  </div>
+{% elseif swiper_card_layout == 'layout_3' %}
+  {{ attach_library('swiper_cards/swiper_cards') }}
+  <section class="sc-slide-block" {% if default_data.background_color!= '' %}style="background-color: {{ default_data.background_color }}" {% endif %}>
+    <div class="swipercardsblock-container-layout-3">
+      <div class="swiper-container">
+        <ul class="swiper-wrapper sc-slide_list">
+          {% if swiper_cards_data is not empty %}
+            {% for key,swiper_card in swiper_cards_data %}
+              <li class="swiper-slide sc-slide_item" data-swiper-autoplay="1500" data-swiper-slide-index="0">
+                <div class="swiper-card-li-container">{% if swiper_card.image_url != '' %}
+                  <img src="{{ swiper_card.image_url }}" class="sc-slide_img" alt="">
+                {% endif %}
+                <div class="sc-slide_info clearfix">
+                  <div class="sc-slide-info_descr">
+                    {% if swiper_card.card_title != '' %}
+                      <small class="sc-slide-info_category">{{ swiper_card.card_title }}</small>
+                    {% endif %}
+                    {% if swiper_card.card_subtitle != '' %}
+                      <h3 class="sc-slide-info_title">{{ swiper_card.card_subtitle }}"</h3>
+                    {% endif %}
+                    {% if swiper_card.card_description.value != '' %}
+                      {{ swiper_card.card_description.value|raw }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% elseif swiper_card_layout == 'layout_4' %}
+  {{ attach_library('swiper_cards/swiper_cards') }}
+  <div class="swipercardsblock-container-layout-4" {% if default_data.background_color!= '' %}style="background-color: {{ default_data.background_color }}" {% endif %}>
+    <div class="swiper-container-l4">
+      <div class="swiper-wrapper">
+        {% if swiper_cards_data is not empty %}
+          {% for key,swiper_card in swiper_cards_data %}
+            <div class="swiper-slide">
+              <div class="swiper-content">
+                {% if swiper_card.image_url != '' %}
+                  <div class="swiper-image-container">
+                    <img src="{{ swiper_card.image_url }}">
+                  </div>
+                {% endif %}
+                <div class="swiper-contents-wrapper">
+                  {% if swiper_card.card_title != '' %}
+                    <h2>{{ swiper_card.card_title }}</h2>
+                  {% endif %}
+                  <h3>The city that never sleeps.</h3>
+                  {% if swiper_card.card_subtitle != '' %}
+                    <p>{{ swiper_card.card_subtitle }}</p>
+                  {% endif %}
+                  {% if swiper_card.card_description.value != '' %}
+                    {{ swiper_card.card_description.value|raw }}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+{% endif %}
+{% endif %}

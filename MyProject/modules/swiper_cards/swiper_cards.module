@@ -1,0 +1,195 @@
+<?php
+
+/**
+ * @file
+ * Contains swiper_cards.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_help().
+ */
+function swiper_cards_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the swiper_cards module.
+    case 'help.page.swiper_cards':
+    $output = '';
+    $output .= '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('Provides a custom block functionality which helps to generate responsive and flexible touch slider - Swiper') . '</p>';
+    return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function swiper_cards_theme($existing, $type, $theme, $path) {
+  return [
+    'swiper_cards' => [
+      'variables' => ['swiper_cards_data' => NULL,'default_data' => NULL,'swiper_card_layout' => NULL]
+    ]
+  ];
+}
+
+/**
+ * View preview thumbnail for the managed files
+ * @param  [type] &$variables
+ * @return [type]
+ */
+function swiper_cards_preprocess_image_widget(&$variables) {
+  $element = $variables['element'];
+  $variables['attributes'] = array('class' => array('image-widget', 'js-form-managed-file', 'form-managed-file', 'clearfix'));
+
+  if (!empty($element['fids']['#value'])) {
+    foreach ($element['#files'] as $file) {
+
+      $element['file_' . $file->id()]['filename']['#suffix'] = ' <span class="file-size">(' . format_size($file->getSize()) . ')</span> ';
+      $file_variables = array(
+        'style_name' => $element['#preview_image_style'],
+        'uri' => $file->getFileUri(),
+      );
+      // Determine image dimensions.
+      if (isset($element['#value']['width']) && isset($element['#value']['height'])) {
+        $file_variables['width'] = $element['#value']['width'];
+        $file_variables['height'] = $element['#value']['height'];
+      } else {
+        $image = \Drupal::service('image.factory')->get($file->getFileUri());
+        if ($image->isValid()) {
+          $file_variables['width'] = $image->getWidth();
+          $file_variables['height'] = $image->getHeight();
+        }
+        else {
+          $file_variables['width'] = $file_variables['height'] = NULL;
+        }
+      }
+      $element['preview'][] = array(
+        '#weight' => -10,
+        '#theme' => 'image_style',
+        '#width' => $file_variables['width'],
+        '#height' => $file_variables['height'],
+        '#style_name' => $file_variables['style_name'],
+        '#uri' => $file_variables['uri'],
+      );
+      // Store the dimensions in the form so the file doesn't have to be
+      // accessed again. This is important for remote files.
+      $element['width'] = array(
+        '#type' => 'hidden',
+        '#value' => $file_variables['width'],
+      );
+      $element['height'] = array(
+        '#type' => 'hidden',
+        '#value' => $file_variables['height'],
+      );
+    }
+  }
+  $variables['data'] = array();
+  foreach (\Drupal\Core\Render\Element::children($element) as $child) {
+    $variables['data'][$child] = $element[$child];
+  }
+}
+
+/**
+ * Get previous image ids of the swiper_cards
+ * @param  [type] $swiper_cards_data_config
+ * @return [type]
+ */
+function getSwiperCardsOldImageIds($swiper_cards_data_config) {
+  $image_ids = array();
+  if($swiper_cards_data_config != '') {
+    $all_config_data = json_decode($swiper_cards_data_config);
+    foreach ($all_config_data as $key => $config_data) {
+      if(isset($config_data->card_image[0])) {
+        $image_ids[] = $config_data->card_image[0];
+      }
+    }
+  }
+  return $image_ids;
+}
+
+/**
+ * form alter block_delete_form to delete the images used
+ * on the block
+ * @param  [type]             &$form
+ * @param  FormStateInterface $form_state
+ * @return [type]
+ */
+function swiper_cards_form_alter(&$form, FormStateInterface $form_state) {
+  if($form['#form_id'] == 'block_delete_form') {
+
+    $block_entity = $form_state->getFormObject()->getEntity();
+
+    // get block entity
+    if($block_entity) {
+
+      $block_plugin_id = $block_entity->getPluginId();
+
+      // check if the plugin id is swiper_cards
+      if($block_plugin_id == 'swiper_cards') {
+
+        $settings = $block_entity->get('settings');
+
+        if(isset($settings['swiper_cards_data'])) {
+          $swiper_cards_data = $settings['swiper_cards_data'];
+          $getSwiperCardsOldImageIds =  getSwiperCardsOldImageIds($swiper_cards_data);
+          $form_state->set('after_ajax_call', json_encode($getSwiperCardsOldImageIds));
+
+          if(!empty($getSwiperCardsOldImageIds)) {
+
+            foreach (array_keys($form['actions']) as $action) {
+              if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+                $form['actions'][$action]['#submit'][] = 'swiper_cards_form_submit';
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * submit form callback to remove the images used
+ * on the swiper_cards block
+ * @param  [type]             $form
+ * @param  FormStateInterface $form_state
+ * @return [type]
+ */
+function swiper_cards_block_form_submit($form, FormStateInterface $form_state) {
+  $after_ajax_call = $form_state->get('after_ajax_call');
+  if($after_ajax_call != '') {
+    $result = json_decode($after_ajax_call);
+    if(!empty($result)) {
+      foreach ($result as $key => $card_image_id) {
+        $file = File::load($card_image_id);
+        $file->setTemporary();
+        $file->save();
+      }
+    }
+  }
+}
+
+
+/**
+ * Get previous image ids of the testimonials
+ * @param  [type] $cards_config
+ * @return [type]
+ */
+function getCardssOldImageIds($cards_config) {
+  $image_ids = array();
+  if($cards_config != '') {
+    $all_config_data = json_decode($cards_config);
+    foreach ($all_config_data as $key => $config_data) {
+      if(isset($config_data->card_image[0])) {
+        $image_ids[] = $config_data->card_image[0];
+      }
+    }
+  }
+  return $image_ids;
+}

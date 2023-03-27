@@ -1,0 +1,12 @@
+name: URL-friendly Options
+type: module
+description: Enforces that keys in option list fields are URL-friendly.
+core_version_requirement: ^9
+package: Other
+dependencies:
+  - drupal:options
+
+# Information added by Drupal.org packaging script on 2022-06-01
+version: '1.0.0-beta1'
+project: 'url_friendly_options'
+datestamp: 1654091752

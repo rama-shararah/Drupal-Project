@@ -1,0 +1,20 @@
+<!-- Banner -->
+<div class="fh5co-hero">
+	<div class="fh5co-overlay"></div>
+	<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{ file_url(content.field_image['#items'].entity.uri.value) }});">
+		<div class="desc animate-box">
+			<h2 id="banner-title">{{ content.field_title.0 }}</h2>
+			<span>{{ content.field_body.0 }}</span>
+			<p>
+				{% if content.field_url.0|render is not empty %}
+					<a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-primary btn-lg btn-learn">{{ content.field_url[0]['#title'] }}</a>
+				{% endif %}
+				{% if content.field_youtube.0|render is not empty %}
+					<a class="popup-youtube btn btn-primary btn-lg popup-vimeo btn-video" href="{{ content.field_youtube[0]['#url']|render }}"><i class="icon-play"></i> 
+					{{ content.field_youtube[0]['#title'] }}</a>
+				{% endif %}	
+			</p>	
+		</div>
+	</div>
+</div>
+<!-- Banner End-->

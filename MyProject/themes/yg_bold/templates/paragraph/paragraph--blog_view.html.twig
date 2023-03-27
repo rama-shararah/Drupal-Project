@@ -1,0 +1,18 @@
+<!-- Blog -->
+{% if content.field_blog.0|render is not empty %}
+<div id="fh5co-blog" class="animate-box">
+	{{ content.field_blog.0 }}
+	<div class="container">
+		<div class="row">
+		{% if content.field_url.0|render is not empty %}
+			<div class="col-md-12 text-center">
+				<p><a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-primary btn-outline with-arrow">{{ content.field_url[0]['#title'] }} <i class="icon-arrow-right"></i></a></p>
+			</div>
+		{% endif %}		
+		</div>
+	</div>
+</div>
+{% endif %}
+{{ content.field_blog_page.0 }}
+<!-- Blog -->
+

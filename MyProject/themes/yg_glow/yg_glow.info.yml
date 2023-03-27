@@ -1,0 +1,30 @@
+name : YG Glow 
+description: 'YG Glow is a Drupal 8 theme perfect for technology related websites'
+core_version_requirement: ^8 || ^9 
+type: theme 
+base theme: classy
+
+# #Libraries
+libraries:
+  - yg_glow/global-style
+  - yg_glow/fontawesome
+  
+#Regions
+regions:
+  header: 'Header'
+  tabs: 'Tabs'
+  site_branding: 'Site Branding'
+  primary_menu: 'Primary Menu'
+  content: 'Content'
+  banner: 'Banner'
+  latest_blog: 'Latest Blog(Footer)'
+  footer_menu: 'Footer Menu'
+  disable_blocks: 'Disable Blocks'
+
+
+  
+
+# Information added by Drupal.org packaging script on 2020-08-24
+version: '2.0.0'
+project: 'yg_glow'
+datestamp: 1598271084

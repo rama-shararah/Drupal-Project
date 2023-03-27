@@ -1,0 +1,17 @@
+<!-- About Welcome Items -->
+<div class="container">
+	<div class="col-md-12">
+		<figure>
+			<img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" 
+			alt="{{ content.field_image['#items'].alt }}" class="img-responsive">
+		</figure>
+	</div>
+	<div class="col-md-8 col-md-push-4">
+		<h2>{{ content.field_title.0 }}</h2>
+		{{ content.field_body.0 }}
+		{% if content.field_url.0|render is not empty %}
+			<p><a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-primary btn-outline with-arrow">{{ content.field_url[0]['#title'] }} <i class="icon-arrow-right"></i></a></p>
+		{% endif %}
+	</div>
+</div>
+<!-- About Welcome Items End-->

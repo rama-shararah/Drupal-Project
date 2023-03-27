@@ -1,0 +1,89 @@
+<div id="fh5co-wrapper">
+   <div id="fh5co-page">
+      <!-- Header -->
+      <div id="fh5co-header">
+         <header id="fh5co-header-section">
+            <div class="container">
+               <div class="nav-header">
+                  <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+                  {{ page.site_branding }}
+                  <!-- START #fh5co-menu-wrap -->
+                   {{ page.primary_menu }}
+               </div>
+            </div>
+         </header>
+      </div>
+      <!-- Header End -->
+
+      <!-- Banner -->
+      {% set banner = page.banner|render|striptags|trim is not empty %}
+      {% if banner %}
+        {{ page.banner }}
+        {% else %}
+          <div class="fh5co-hero fh5co-hero-2">
+            <div class="fh5co-overlay"></div>
+            <div class="fh5co-cover fh5co-cover_2 text-center" data-stellar-background-ratio="0.5" style="background-image: url({{ basepath }}/themes/yg_glow/images/cover_bg_2.jpg);">
+              <div class="desc animate-box">
+                <h2>{{ page['#title']|render|striptags }}</h2>
+                <span>Free Drupal 8 Theme by Drupal Developers Studio <a href="https://www.drupaldevelopersstudio.com"> Drupal Developers Studio</a></span>
+              </div>
+            </div>
+          </div>
+        {% endif %}  
+      <!-- Banner End -->
+      <!--  Tabs -->
+        {{ page.tabs }}
+      <!-- Content -->
+         {{ page.content }}
+      <!-- Content End -->
+      
+      <!-- Footer --> 
+      <footer>
+         <div id="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+                     <h3>{% if about_title|render is not empty %}{{ about_title }}{% endif %}</h3>
+                     {% if about_desc %}
+                       {% autoescape 'html' %}
+                         {{ about_desc|raw }}
+                       {% endautoescape %}
+                     {% endif %}
+                  </div>
+                  <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+                    {{ page.latest_blog }}
+                  </div>
+                  <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+                     {{ page.footer_menu }}
+                  </div>
+                  <div class="col-md-2 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+                     <h3>{% if social_title|render is not empty %}{{ social_title }}{% endif %}</h3>
+                     <ul class="fh5co-social">
+                        {% if twitter_url|render is not empty %}
+                        <li><a href="{{ twitter_url }}"><i class="icon-twitter2"></i> Twitter</a></li>
+                        {% endif %}
+                        {% if facebook_url|render is not empty %}
+                        <li><a href="{{ facebook_url }}"><i class="icon-facebook2"></i> Facebook</a></li>
+                        {% endif %}
+                        {% if google_plus_url|render is not empty %}
+                        <li><a href="{{google_plus_url }}"><i class="icon-google-plus2"></i> Google Plus</a></li>
+                        {% endif %}
+                        {% if instagram_url|render is not empty %}
+                         <li><a href="{{ instagram_url }}"><i class="icon-instagram2"></i> Instagram</a></li>
+                        {% endif %}
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="fh5co-copyright text-center">
+                <p><span> &copy; 2018 <i>YG Glow</i> All Rights Reserved. Designed with <i class="icon-heart"></i> by <a href="http://freehtml5.co" target="_blank">FREEHTML5.co</a><br> Theme By<a href="https://www.drupaldevelopersstudio.com" target="_blank"> Drupal Developers Studio</a>, A Division of <a href="http://www.youngglobes.com" target="_blank">Young Globes</a></span></p> 
+            </div>
+         </div>
+      </footer>
+     <!-- Footer End --> 
+
+   </div>
+   <!-- END fh5co-page -->
+
+</div>
+<!-- END fh5co-wrapper -->

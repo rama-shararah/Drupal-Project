@@ -1,0 +1,14 @@
+<!-- Testimonial Items -->
+<div class="col-md-4 text-center item-block">
+	<blockquote>
+		<p>&ldquo; {{ content.field_body.0|render|striptags }} &rdquo;</p>
+		<p><span class="fh5co-author"><cite>{{ content.field_title.0 }}</cite></span>
+		{% if content.field_google_plus.0|render is not empty %}
+			<a href="{{ content.field_google_plus.0 }}">
+				<i class="icon {{ content.field_icons.0 }} pull-right"></i>
+			</a>
+		{% endif %}
+		</p>	
+	</blockquote>
+</div>
+<!-- Testimonial Items End-->

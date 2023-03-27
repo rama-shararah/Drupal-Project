@@ -1,0 +1,445 @@
+img {
+	object-fit:cover;
+	   -o-object-fit:cover;
+}
+.toolbar-tab li a {
+    font-size: small;
+}
+.contextual-region .contextual .contextual-links li a {
+    color: #333 !important;
+}
+.owl-theme .owl-dots .owl-dot.active span {
+    background: #ef6249;
+    border-color: #ef6249;
+}
+.owl-theme .owl-dots .owl-dot span {
+    width: 12px;
+    height: 12px;
+    margin: 5px 7px;
+    background: none;
+    display: inline-block;
+    transition: opacity .2s ease;
+    border-radius: 30px;
+    border-bottom: none;
+    border: 1px solid #535353;
+}
+.owl-controls {
+    text-align: center;
+    padding-top: 35px;
+}
+.owl-dots {
+    display: inline-flex;
+}
+/* Page not found */
+#not-found-section {
+    padding: 50px 0px 100px;
+}
+.not-found-body {
+    max-width: 70%;
+    margin: auto;
+}
+.not-found-body h2 {
+    font-size: 25px;
+    font-weight: 600;
+}
+.not-title {
+    border: 2px solid #f5f5f5;
+    padding: 10px 50px 30px 50px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+.not-title h1 {
+    font-size: 125px;
+    margin: 0px;
+    color: #f17660;
+}
+.not-title h2 {
+    font-size: 25px;
+    margin: 0px;
+    color: #f17660;
+}
+#not-found-section a.btn.btn-custom{
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    padding: 8px 20px;
+    background: #ef6249;
+    color: #fff;
+    border: 2px solid #ef6249;
+}
+#not-found-section a.btn.btn-custom:hover{
+    background: #f17660 !important;
+    border-color: #f17660 !important;
+    color: #fff !important;
+    transition: 0.7s;
+}
+@media (min-width: 320px) and (max-width: 480px){
+	.not-title h1 {
+	    font-size: 92px !important;
+	    margin: 0px !important;
+	    color: #f17660 !important;
+	}
+	.not-title h2 {
+	    font-size: 22px !important;
+	    margin: 0px !important;
+	    color: #f17660 !important;
+	}
+	.not-title {
+	    border: 2px solid #f5f5f5 !important;
+	    padding: 10px 50px 30px 50px !important;
+	    width: 100% !important;
+	    margin: auto !important;
+	    margin-bottom: 40px !important;
+	    border-radius: 10px !important;
+	}
+}
+@media (min-width: 481px) and (max-width: 768px) {
+	.not-title h1 {
+	    font-size: 92px !important;
+	    margin: 0px !important;
+	    color: #f17660 !important;
+	}
+	.not-title h2 {
+	    font-size: 22px !important;
+	    margin: 0px !important;
+	    color: #f17660 !important;
+	}
+	.not-title {
+	    border: 2px solid #f5f5f5 !important;
+	    padding: 10px 50px 30px 50px !important;
+	    width: 100% !important;
+	    margin: auto !important;
+	    margin-bottom: 40px !important;
+	    border-radius: 10px !important;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+	.not-title h1 {
+	    font-size: 92px !important;
+	    margin: 0px !important;
+	    color: #f17660 !important;
+	}
+	.not-title h2 {
+	    font-size: 22px !important;
+	    margin: 0px !important;
+	    color: #f17660 !important;
+	}
+	.not-title {
+	    border: 2px solid #f5f5f5 !important;
+	    padding: 10px 50px 30px 50px !important;
+	    width: 70% !important;
+	    margin: auto !important;
+	    margin-bottom: 40px !important;
+	    border-radius: 10px !important;
+	}
+}
+/* End page not found*/
+
+/* User login form css*/
+#user-login {
+  max-width: 40%;
+  margin: auto;
+  padding: 20px 0px 40px;
+  border: 2px solid #f5f5f5;
+  margin-bottom: 70px;
+  margin-top: 80px;
+  overflow: hidden;
+}
+.login-text .form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.login-text a {
+  color: #f91546;
+}
+.login-button input {
+	margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    padding: 8px 20px;
+    background: #ef6249;
+    color: #fff;
+    border: 2px solid #ef6249;
+}
+.login-button input:hover {
+    background: #f17660 !important;
+    border-color: #f17660 !important;
+    color: #fff !important;
+    transition: 0.7s;
+}
+.login-button , #user-register-form .form-actions ,#user-pass .form-actions{
+  text-align: center;
+}
+#user-register-form , #user-pass{
+  max-width: 50%;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  border: 2px solid #f5f5f5;
+  padding: 20px 20px 40px;
+  overflow: hidden;
+}
+#user-register-form .js-form-item {
+  margin-bottom: 20px !important;
+}
+#user-register-form .js-form-item input, #user-pass .js-form-item input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+#user-register-form .form-actions input , #user-pass .form-actions input, 
+.comment-comment-form #edit-actions input, .comment-comment-delete-form input#edit-submit {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    padding: 8px 20px;
+    background: #ef6249;
+    color: #fff;
+    border: 2px solid #ef6249;
+}
+#user-register-form .form-actions input:hover , #user-pass .form-actions input:hover, 
+.comment-comment-form #edit-actions input:hover, .comment-comment-delete-form input#edit-submit:hover {
+    background: #f17660 !important;
+    border-color: #f17660 !important;
+    color: #fff !important;
+    transition: 0.7s;
+}
+summary {
+    font-size: 16px;
+}
+#user-register-form .form-actions label , #user-pass .form-actions label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 17px;
+}
+@media only screen and (max-width: 610px) {
+	#user-login {
+	  max-width: 95% !important;
+	  margin: auto;
+	  padding: 20px 0px 40px;
+	  border: 2px solid #f5f5f5;
+	  margin-bottom: 40px;
+	  margin-top: 20px;
+	  overflow: hidden;
+	}
+	#user-register-form , #user-pass{
+	  max-width: 95% !important;
+	  margin: auto;
+	  margin-top: 40px;
+	  margin-bottom: 40px;
+	  border: 2px solid #f5f5f5;
+	  padding: 20px 20px 40px;
+	  overflow: hidden;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+	#user-login {
+	  max-width: 95% !important;
+	  margin: auto;
+	  padding: 20px 0px 40px;
+	  border: 2px solid #f5f5f5;
+	  margin-bottom: 40px;
+	  margin-top: 20px;
+	  overflow: hidden;
+	}
+	#user-register-form , #user-pass{
+	  max-width: 95% !important;
+	  margin: auto;
+	  margin-top: 40px;
+	  margin-bottom: 40px;
+	  border: 2px solid #f5f5f5;
+	  padding: 20px 20px 40px;
+	  overflow: hidden;
+	}
+}
+/* End  User login form css*/
+.fh5co-cover .desc span p {
+    display: block;
+    margin-bottom: 30px;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.node-3 .bg-color {
+    background: rgba(0, 0, 0, 0.04);
+}
+.owl-controls .owl-prev, .owl-controls .owl-next {
+    display: block !important;
+}
+.owl-carousel .owl-controls .owl-nav  .fa {
+    font-size: 25px;
+}
+.owl-carousel .owl-controls,
+.owl-carousel-posts .owl-controls {
+  margin-top: 0;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-next,
+.owl-carousel .owl-controls .owl-nav .owl-prev,
+.owl-carousel-posts .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  top: 50%;
+  margin-top: -93px;
+  z-index: 9999;
+  position: absolute;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.owl-carousel-posts .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  top: 24%;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-next {
+  right: 20px;
+}
+.owl-carousel .owl-controls .owl-nav .owl-prev,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  left: 0px;
+}
+.owl-carousel-posts .owl-controls .owl-nav .owl-next {
+  right: -50px;
+}
+.owl-carousel .owl-controls .owl-nav .owl-next:hover,
+.owl-carousel .owl-controls .owl-nav .owl-prev:hover{
+  color: #ef6249;
+}
+@media screen and (max-width: 768px) {
+  .owl-carousel-posts .owl-controls .owl-nav .owl-next {
+    right: 0px;
+  }
+}
+
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  left: -50px;
+}
+@media screen and (max-width: 768px) {
+  .owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+    left: 0px;
+  }
+}
+
+/*Comment*/
+.comment-main.wow.fadeInUp{
+    margin-bottom: 30px;
+    position: relative;
+    background: #fff;
+    width: 100%;
+    padding: 30px;
+    float: right;
+    -webkit-box-shadow: 0px 6px 62px -6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 6px 62px -6px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0px 6px 62px -6px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0px 6px 62px -6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 62px -6px;
+}
+.comment-wrap {
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 30px 20px;
+    border: 1px solid #f1f1f1;
+}
+.comment-theme{
+  float:left;
+}
+.comment-main-area{
+  margin-left:115px;
+}
+.comment-wrap1 {
+    margin-left: 20px;
+}
+.comment-wrap2{
+    margin-left:40px;
+}
+.sewl-comments-meta h4{
+    margin-top: 0em;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px 0px 17px;
+}
+.comment-area p{
+    margin-bottom: 5px;
+    color: #000c17;
+}
+.sewl-comments-meta h4 span {
+    font-weight: 400;
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 15px;
+    font-style: normal;
+}
+.comment-image img {
+    border-radius: 50%;
+    height: 100px;
+}
+form#comment-form {
+    padding: 50px 0px 30px;
+}
+@media screen and (max-width: 550px) {
+  	.comment-wrap1 {
+    	margin-left: 0px; 
+	}
+	.comment-theme {
+    	float: inherit;
+	}
+	.comment-main-area {
+     	margin-left: 0px; 
+    }
+    .sewl-comments-meta h4 span {
+    	margin-left: 0px; 
+    }
+    form#comment-form .form-item-subject-0-value input {
+    	width: 100%;
+	}
+}
+
+.fh5co-copyright.text-center i {
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.8);
+}
+.fh5co-copyright.text-center i:hover{
+  color: #ef6249;
+  cursor: default;
+}
+.path-comment form#comment-form, .comment-comment-delete-form,
+.path-comment .comment-wrap {
+    padding: 50px 0px 30px;
+    max-width: 80%;
+    margin: 0px auto;
+    border: none;
+}

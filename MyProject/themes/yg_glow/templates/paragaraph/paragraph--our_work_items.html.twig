@@ -1,0 +1,39 @@
+<!-- Our Work Items -->
+{% if content.field_style[0]['#markup'] == 0 %}
+	<div class="col-md-12 work">
+		<div class="row">
+			<div class="col-md-6 col-md-pull-2">
+				<div class="half-inner" style="background-image:url({{ file_url(content.field_image['#items'].entity.uri.value) }});">
+				</div>
+			</div>
+			<div class="col-md-6 animate-box">
+				<div class="desc">
+					<h3><a href="{{ content.field_url[0]['#url']|render }}">{{ content.field_title.0 }}</a></h3>
+					{{ content.field_body.0 }}
+					{% if content.field_url.0|render is not empty %}
+						<p><a class="btn btn-primary" href="{{ content.field_url[0]['#url']|render }}"> {{ content.field_url[0]['#title'] }}</a></p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% else %}
+	<div class="col-md-12 work">
+		<div class="row">
+			<div class="col-md-6 col-md-push-6">
+				<div class="half-inner half-inner2" style="background-image:url({{ file_url(content.field_image['#items'].entity.uri.value) }});">
+				</div>
+			</div>
+			<div class="col-md-6 col-md-pull-6 animate-box">
+				<div class="desc desc2">
+					<h3><a href="{{ content.field_url[0]['#url']|render }}">{{ content.field_title.0 }}</a></h3>
+					{{ content.field_body.0 }}
+					{% if content.field_url.0|render is not empty %}
+						<p><a class="btn btn-primary" href="{{ content.field_url[0]['#url']|render }}"> {{ content.field_url[0]['#title'] }}</a></p>
+					{% endif %}		
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+<!-- Our Work Items End-->

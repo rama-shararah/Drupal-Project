@@ -1,0 +1,12 @@
+<!-- Team Items -->
+<div class="col-md-4 fh5co-staff">
+	<img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" 
+	alt="{{ content.field_image['#items'].alt }}" class="img-responsive">
+	<h3>{{ content.field_title.0 }}</h3>
+	<h4>{{ content.field_phone_number.0 }}</h4>
+	{{ content.field_body.0 }}
+	<ul class="fh5co-social">
+		{{ content.field_team_social_links.0 }}
+	</ul>
+</div>
+<!-- Team Items End-->

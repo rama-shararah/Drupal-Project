@@ -1,0 +1,37 @@
+<!-- Pricing Items -->
+{% if '0' in content.field_best_offer[0] %}
+<div class="col-md-3 animate-box">
+	<div class="price-box">
+		<h2 class="pricing-plan">{{ content.field_title.0 }}</h2>
+		<div class="price"><sup class="currency">$</sup>{{ content.field_phone_number.0 }}
+		<small>/{{ content.field_price_per.0 }}</small></div>
+		{{ content.field_body.0 }}
+		{% if content.field_url.0|render is not empty %}
+			<a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-select-plan btn-sm">
+				{{ content.field_url[0]['#title'] }}
+			</a>
+		{% endif %}
+	</div>
+</div>
+{% else %}
+<div class="col-md-3 animate-box">
+	<div class="price-box popular">
+		<h2 class="pricing-plan pricing-plan-offer">
+			{{ content.field_title.0 }} 
+			<span>{{ content.field_best_offer['#title'] }}</span>
+
+		</h2>
+		<div class="price"><sup class="currency">$</sup>{{ content.field_phone_number.0 }}
+			<small>/{{ content.field_price_per.0 }}</small>
+		</div>
+		{{ content.field_body.0 }}
+		{% if content.field_url.0|render is not empty %}
+			<a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-select-plan btn-sm">
+				{{ content.field_url[0]['#title'] }}
+			</a>
+		{% endif %}
+	</div>
+</div>
+{% endif %}
+<!-- Pricing Items End-->
+

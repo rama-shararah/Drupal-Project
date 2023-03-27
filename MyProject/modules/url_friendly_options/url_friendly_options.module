@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for url_friendly_options.module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\field\FieldConfigInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for field_storage_config_edit_form().
+ */
+function url_friendly_options_form_field_storage_config_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Add our custom validate function.
+  $form['#validate'][] = 'url_friendly_options_validate';
+}
+
+/**
+ * Custom validation helper.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+function url_friendly_options_validate(array &$form, FormStateInterface $form_state) {
+  $config = $form_state->get('field_config');
+  if ($config instanceof FieldConfigInterface) {
+    $field_name = $config->getFieldStorageDefinition()->getName();
+    $entity_type_id = $config->getTargetEntityTypeId();
+    $context = [
+      'field_name' => $field_name,
+      'entity_type_id' => $entity_type_id,
+    ];
+    $hooks_return = \Drupal::moduleHandler()->invokeAll('url_friendly_options_bypass_field_validation', $context);
+    // If at least one module wants to bypass validation for this field, do so.
+    if (in_array(TRUE, $hooks_return, TRUE)) {
+      return;
+    }
+  }
+  $allowed_values = $form_state->getValue(['settings', 'allowed_values'], []);
+  $failed_validation = _url_friendly_options_check_allowed_values($allowed_values);
+  if (!empty($failed_validation)) {
+    $form_state->setErrorByName('settings', t('The following keys are not URL-friendly: @keys. Make sure you use only alpha-numeric characters and hyphens.', [
+      '@keys' => implode(", ", $failed_validation),
+    ]));
+  }
+}
+
+/**
+ * Helper to check allowed_values keys against a URL-friendly pattern.
+ *
+ * @param array $allowed_values
+ *   An associative array of allowed values, as stored in list_string field
+ *   storages.
+ *
+ * @return array
+ *   An indexed array of keys that failed URL-friendly validation.
+ */
+function _url_friendly_options_check_allowed_values(array $allowed_values): array {
+  $failed_validation = [];
+  foreach ($allowed_values as $key => $label) {
+    if (!preg_match('/^[a-zA-Z0-9-]*[a-zA-Z0-9]+$/', $key)) {
+      $failed_validation[] = $key;
+    }
+  }
+  return $failed_validation;
+}

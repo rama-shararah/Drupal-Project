@@ -1,0 +1,34 @@
+<!-- Contact Info -->
+<div id="fh5co-contact" class="animate-box">
+	<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h3 class="section-title">{{ content.field_title.0 }}</h3>
+					{{ content.field_body.0 }}
+					<ul class="contact-info">
+						<li><i class="icon-location-pin"></i>{{ content.field_address.0 }}</li>
+						<li><i class="icon-phone2"></i>{{ content.field_phone_number.0 }}</li>
+						{% if content.field_email.0|render is not empty %}
+							<li><i class="icon-mail"></i>
+							<a href="mailto:{{ content.field_email.0 }}">{{ content.field_email.0 }}</a>
+							</li>
+						{% endif %}
+						{% if content.field_url.0|render is not empty %}
+				        	<li><i class="icon-globe2"></i>
+								<a href="{{ content.field_url[0]['#url']|render }}">{{ content.field_url[0]['#title'] }}</a>
+							</li>
+				       	{% endif %} 
+
+					</ul>
+				</div>
+				<div class="col-md-6">
+					{{ content.field_contact_form.0 }}
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Map -->
+<div id="map">
+	{{ content.field_map.0 }}
+</div>
+<!-- Contact Info End-->

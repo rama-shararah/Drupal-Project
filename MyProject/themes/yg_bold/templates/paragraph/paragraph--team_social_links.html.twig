@@ -1,0 +1,17 @@
+<!-- Team Social Links -->
+{% if content.field_google_plus.0|render is not empty %}
+	<li><a href="{{ content.field_google_plus.0 }}"><i class="icon-google"></i></a></li>
+{% endif %}
+{% if content.field_phone_number.0|render is not empty %}
+	<li><a href="{{ content.field_phone_number.0 }}"><i class="icon-dribbble"></i></a></li>
+{% endif %}	
+{% if content.field_twitter.0|render is not empty %}
+	<li><a href="{{ content.field_twitter.0 }}"><i class="icon-twitter"></i></a></li>
+{% endif %}
+{% if content.field_title.0|render is not empty %}
+	<li><a href="{{ content.field_title.0 }}"><i class="icon-facebook"></i></a></li>
+{% endif %}	
+{% if content.field_instagram.0|render is not empty %}
+	<li><a href="{{ content.field_instagram.0 }}"><i class="icon-instagram"></i></a></li>
+{% endif %}
+<!-- Team Social Links End-->

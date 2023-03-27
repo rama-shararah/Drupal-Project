@@ -1,0 +1,34 @@
+swiper_cards:
+  version: VERSION
+  css:
+    theme:
+      css/swiper.min.css: {}
+      css/swiper_cards.css: {}
+  js:
+    js/swiper.min.js: {}
+    js/swiper_cards.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+
+swiper_cards_bundle:
+  version: VERSION
+  css:
+    theme:
+      css/swiper-bundle.min.css: {}
+      css/swiper_cards.css: {}
+  js:
+    js/swiper-bundle.min.js: {}
+    js/swiper_cards.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+

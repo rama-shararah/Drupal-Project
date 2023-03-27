@@ -1,0 +1,14 @@
+<!-- Get Started -->
+<div class="fh5co-cta" style="background-image: url({{ file_url(content.field_image['#items'].entity.uri.value) }});">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="col-md-12 text-center animate-box">
+			<h3>{{ content.field_title.0 }}</h3>
+			{% if content.field_url.0|render is not empty %}
+				<p><a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-primary btn-outline with-arrow">{{ content.field_url[0]['#title'] }} <i class="icon-arrow-right"></i></a></p>
+			{% endif %}	
+		</div>
+	</div>
+</div>
+<!-- Get Started End-->
+
